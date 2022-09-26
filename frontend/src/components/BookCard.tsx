@@ -3,6 +3,7 @@ import "./BookCard.css"
 
 type BookCardProps = {
     book:Book;
+    deleteBook:(isbn:string)=>void;
 }
 
 
@@ -13,6 +14,7 @@ export default function BookCard(props: BookCardProps){
             <div className={"book-card"}>
                 <h3>{props.book.title}</h3>
                 <p>{props.book.author}</p>
+                <button onClick={()=>props.deleteBook(props.book.isbn)}>Delete</button>
             </div>
         </div>
 

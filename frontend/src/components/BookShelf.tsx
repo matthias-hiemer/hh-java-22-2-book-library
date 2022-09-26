@@ -5,13 +5,14 @@ import AddBookCard from "./AddBookCard";
 type BookShelfProps = {
     books: Book[];
     addBook: (newTitle:string, newAuthor:string, newIsbn:string)=>void;
+    deleteBook:(isbn:string)=>void;
 }
 
 export default function BookShelf(props: BookShelfProps){
     return(
         <div className={"book-shelf"}>
             {props.books.map(
-                (book)=>{return <BookCard book={book}/>}
+                (book)=>{return <BookCard book={book} deleteBook={props.deleteBook}/>}
             )}
             <AddBookCard addBook={props.addBook}/>
         </div>

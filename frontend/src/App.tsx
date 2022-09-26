@@ -27,6 +27,11 @@ function App() {
             .then(getAllBooks)
     }
 
+    const deleteBook=(isbn:string)=>{
+        axios.delete("/api/book/"+isbn)
+            .then(getAllBooks)
+    }
+
 
 
   return (
@@ -34,7 +39,7 @@ function App() {
       <header className="App-header">
           <h1>Book Library</h1>
           <div>
-              <BookOverview books={books} addBook={addBook}/>
+              <BookOverview books={books} addBook={addBook} deleteBook={deleteBook}/>
           </div>
 
       </header>
