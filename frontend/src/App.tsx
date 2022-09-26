@@ -17,16 +17,15 @@ function App() {
             .then((books)=> {setBooks(books)})
             .catch((error)=>{console.error(error)})
     }
-    // const addBook=(newTitle:string, newAuthor:string, newIsbn:string)=> {
-    //     let newBook = {
-    //         title:newTitle,
-    //         author:newAuthor,
-    //         isbn:newIsbn
-    //     }
-    //     axios.put("/api/book/"+newIsbn, newBook)
-    //         .then()
-    //
-    // }
+    const addBook=(newTitle:string, newAuthor:string, newIsbn:string)=> {
+        let newBook = {
+            title:newTitle,
+            author:newAuthor,
+            isbn:newIsbn
+        }
+        axios.put("/api/book/"+newIsbn, newBook)
+            .then(getAllBooks)
+    }
 
 
 
@@ -35,7 +34,7 @@ function App() {
       <header className="App-header">
           <h1>Book Library</h1>
           <div>
-              <BookOverview books={books}/>
+              <BookOverview books={books} addBook={addBook}/>
           </div>
 
       </header>

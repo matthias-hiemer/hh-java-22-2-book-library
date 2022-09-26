@@ -4,6 +4,7 @@ import BookCard from "./BookCard";
 import AddBookCard from "./AddBookCard";
 type BookShelfProps = {
     books: Book[];
+    addBook: (newTitle:string, newAuthor:string, newIsbn:string)=>void;
 }
 
 export default function BookShelf(props: BookShelfProps){
@@ -12,7 +13,7 @@ export default function BookShelf(props: BookShelfProps){
             {props.books.map(
                 (book)=>{return <BookCard book={book}/>}
             )}
-            <AddBookCard/>
+            <AddBookCard addBook={props.addBook}/>
         </div>
     )
 }
