@@ -25,11 +25,10 @@ export default function AddBookCard(props: AddBookCardProps){
     return(
         <div className={"cards"}>
             <div className={"addbook-card"}>
-                <label htmlFor={""}></label>
-                <p>Title: <input onChange={onTitleChange} type={"text"} value={newTitle}/></p>
-                <p>Author: <input onChange={onAuthorChange}type={"text"} value={newAuthor}/></p>
-                <p>ISBN: <input onChange={onIsbnChange} type={"text"} value={newIsbn}/></p>
-                <button onClick={()=>props.addBook(newTitle, newAuthor, newIsbn)}>Add a book</button>
+                <div className={"add"}>Title: <input onChange={onTitleChange} type={"text"} value={newTitle} placeholder={"Title of book"}/></div>
+                <div className={"add"}>Author: <input onChange={onAuthorChange}type={"text"} value={newAuthor} placeholder={"Name of author"}/></div>
+                <div className={"add"}>ISBN: <input onChange={onIsbnChange} type={"text"} value={newIsbn} placeholder={"ISBN of book"}/></div>
+                <div className={"btn-add"}><button onClick={()=>props.addBook(newTitle, newAuthor, newIsbn)}>Add a book</button></div>
             </div>
         </div>
 

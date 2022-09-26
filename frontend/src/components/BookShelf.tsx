@@ -10,11 +10,11 @@ type BookShelfProps = {
 
 export default function BookShelf(props: BookShelfProps){
     return(
-        <div className={"book-shelf"}>
+        <div className={"book-shelf"} id={"shelf"}>
             {props.books.map(
                 (book)=>{return <BookCard book={book} deleteBook={props.deleteBook}/>}
             )}
-            <AddBookCard addBook={props.addBook}/>
+
         </div>
     )
 }
