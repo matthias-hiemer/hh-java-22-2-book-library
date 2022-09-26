@@ -1,0 +1,10 @@
+.book-shelf{
+    border: 1px solid #5757ff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 9px;
+    box-shadow: 5px 5px 5px rgba(0, 187, 255, 0.75);
+    width: 1500px;
+    height:400px;
+}
