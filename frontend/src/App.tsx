@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import axios from "axios";
+import AddBook from "./component/AddBook";
+import BookOverview from "./component/BookOverview";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [books, setBooks] = useState([]);
+
+    useEffect(()=>{getAllBooks()}, [])
+    const getAllBooks = ()=>{
+        axios.get("/api/book")
+            .then((response)=>{return response.data})
+            .then((books)=> {setBooks(books)})
+    }
+
+    const addBook = (newTitle:string, newAuthor:string, newIsbn:string) => {
+        let newBook = {
+            title:newTitle,
+            author:newAuthor,
+            isbn:newIsbn
+    }
+
+        axios.put("/api/book/"+newIsbn, newBook)
+            .then(getAllBooks)
+    }
+
+    return (
+        <div className="App">
+            <header className="App-header">
+
+                <h1>Books</h1>
+
+                    <div>
+                        <BookOverview books={books} addBook={addBook}/>
+                    </div>
+
+            </header>
+        </div>
+    );
 }
+
 
 export default App;

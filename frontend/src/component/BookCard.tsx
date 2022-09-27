@@ -2,11 +2,11 @@
 import "./BookCSS.css"
 import {Book} from "../model/Book";
 
-type BookProps = {
+type BookCardProps = {
     book : Book;
 }
 
-export default function Book(props : BookProps){
+export default function BookCard(props : BookCardProps){
 
     return (
         <div className={"cards"}>
