@@ -1,0 +1,11 @@
+.post {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+}
+
+input, button {
+    height: 2em;
+}

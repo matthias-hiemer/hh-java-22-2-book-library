@@ -1,0 +1,9 @@
+.singleBook {
+    border: solid 1.25px;
+    width: 20rem;
+    margin: 5px;
+    padding: 5px;
+    padding-top: 0;
+    background-color: white;
+    border-radius: 5px;
+}
