@@ -1,5 +1,5 @@
 
-import "./BookCSS.css"
+
 import {Book} from "../model/Book";
 
 type BookCardProps = {

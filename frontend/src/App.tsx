@@ -3,6 +3,7 @@ import './App.css';
 import axios from "axios";
 import AddBook from "./component/AddBook";
 import BookOverview from "./component/BookOverview";
+import AllBooks from "./component/AllBooks";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
 
                     <div>
                         <BookOverview books={books} addBook={addBook}/>
+                        <AllBooks books={books} addBook={addBook}/>
                     </div>
 
             </header>
