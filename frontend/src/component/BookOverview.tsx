@@ -1,5 +1,6 @@
 import {Book} from "../model/Book";
 import AddBook from "./AddBook";
+import BookCard from "./BookCard";
 
 
 type BookOverviewProps = {

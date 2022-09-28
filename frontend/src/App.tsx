@@ -4,10 +4,11 @@ import axios from "axios";
 import AddBook from "./component/AddBook";
 import BookOverview from "./component/BookOverview";
 import AllBooks from "./component/AllBooks";
+import {Book} from "./model/Book";
 
 function App() {
 
-    const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState<Book []>([]);
 
     useEffect(()=>{getAllBooks()}, [])
     const getAllBooks = ()=>{

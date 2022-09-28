@@ -1,0 +1,11 @@
+.all-books{
+    border: 5px solid #9f4500;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 9px;
+    box-shadow: 5px 5px 5px rgba(119, 84, 0, 0.75);
+    max-width: 1500px;
+    min-height:400px;
+    flex-wrap: wrap;
+}
