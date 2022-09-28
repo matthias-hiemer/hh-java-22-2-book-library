@@ -8,6 +8,7 @@ type PostComponentProps = {
 
 export default function PostComponent(props: PostComponentProps) {
 
+
     const [newTitle, setNewTitle] = useState("")
     const [newAuthor, setNewAuthor] = useState("")
     const [newIsbn, setNewisbn] = useState("")

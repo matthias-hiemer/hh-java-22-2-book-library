@@ -11,7 +11,7 @@ export default function BookOverview(props:BookOverviewProps) {
 
     return(
         <div className={"overview"}>
-            {props.books.map((book) => <BookElement Book={book} deleteBook={props.deleteBooks}/>)}
+            {props.books.map((book) => <BookElement key={book.isbn} Book={book} deleteBook={props.deleteBooks}/>)}
         </div>
 
     )
