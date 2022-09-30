@@ -1,35 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import logo from './library.png';
 import './App.css';
 import BookOverview from "./components/BookOverview";
 import CreateBook from "./components/CreateBook";
-import {Book} from "./model/Book";
-import axios from "axios";
+import useBooks from "./hooks/useBooks";
 
-function App() {
 
-  const [books, setBooks] = useState<Book[]>([]);
+export default function App() {
 
-  // Load all books
-  // (when the page is rendered the first time)
-  useEffect(() => {
-    getAllBooks()
-  }, [])
-
-  const getAllBooks = () => {
-    axios.get("/api/book")
-        .then(response => response.data)
-        .then(data => setBooks(data))
-        .catch(console.error)
-  }
-
-  const addBook = (newBook: Book) => {
-    return axios.post("/api/book", newBook)
-        .then(response => response.data)
-        .then(getAllBooks)  // reload books
-        .catch(console.error)
-
-  }
+  const {books, addBook, deleteBook} = useBooks()
 
   return (
     <div className="App">
@@ -42,5 +21,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
