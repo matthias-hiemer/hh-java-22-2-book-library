@@ -20,7 +20,7 @@ class BookServiceTest {
     @Test
     void getBookByIsbn_whenBookExists_ReturnBook() {
         //GIVEN
-        when(bookRepository.getBookByIsbn("1")).thenReturn(Optional.ofNullable(new Book("1", "The First Book", "IKEA AG")));
+        when(bookRepository.getBookByIsbn("1")).thenReturn(Optional.ofNullable(new Book("1", "IKEA Catalog", "IKEA AG")));
 
         //WHEN
         Book actual = bookService.getBookByIsbn("1");
