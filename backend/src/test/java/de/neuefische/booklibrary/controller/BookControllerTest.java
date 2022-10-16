@@ -11,8 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -39,7 +38,7 @@ class BookControllerTest {
         mockMvc.perform(get("/api/book"))
                 .andExpect(status().is(200))
                 .andExpect(content().string("""
-                        [{"isbn":"1234","title":"test-title","type":"HARD_COVER"}]"""));
+                        [{"isbn":"1234","title":"test-title","author":"test-author"}]"""));
     }
 
     @DirtiesContext
@@ -48,13 +47,13 @@ class BookControllerTest {
         //GIVEN
         //WHEN & THEN
         mockMvc.perform(
-                put("/api/book/1234")
+                post("/api/book")
                         .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                         .content("""
-                        {"isbn": "1234","title": "test-title","type": "HARD_COVER"}
+                        {"isbn": "1234","title": "test-title", "author":"test-author"}
                         """))
                 .andExpect(status().is(200))
                 .andExpect(content().string("""
-                        {"isbn":"1234","title":"test-title","type":"HARD_COVER"}"""));
+                        {"isbn":"1234","title":"test-title","author":"test-author"}"""));
     }
 }
