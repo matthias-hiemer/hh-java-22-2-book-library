@@ -38,6 +38,7 @@ public class BookService {
         if(book.isEmpty()){
             System.out.println("Book was not real, it didn't exist in the fist place!");
         } else {
+            // bookRepository.deleteBook(isbn);
             bookRepository.deleteBook(isbn);
         }
     }
